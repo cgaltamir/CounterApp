@@ -17,18 +17,23 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: CounterApp(),
+      home: const CounterApp(),
     );
   }
 }
 
-class CounterApp extends StatelessWidget {
-  CounterApp({super.key});
+class CounterApp extends StatefulWidget {
+  const CounterApp({super.key});
 
+  @override
+  State<StatefulWidget> createState() => CounterState();
+}
+
+class CounterState extends State<CounterApp> {
   int _counter = 0;
 
   void _increaseCounter() {
-    _counter++;
+    setState(() => _counter++);
   }
 
   @override
